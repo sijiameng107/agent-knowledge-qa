@@ -59,7 +59,7 @@ class Tools:
         relevant=[d['id'] for d in self.catalog['documents'] if d['topic']==self.topic]
         if not relevant:return {'error':'no_evidence'}
         unread=[d for d in relevant if d not in self.state['read']]
-        if unread:return {'error':'incomplete_evidence','message':'Search the question topic and read every matching candidate before answering.'}
+        if unread:return {'error':'incomplete_evidence','unread_doc_ids':unread,'message':'Search the question topic and read every matching candidate before answering.'}
         if set(doc_ids)!=set(relevant):return {'error':'citation_coverage','message':'Cite all relevant read documents; do not hide conflicts.'}
         evidence=[self.state['read'][d] for d in doc_ids]
         # Strict conservative conflict check: no assumed scope/priority; date alone never resolves it.
@@ -99,7 +99,7 @@ def run(request,catalog,model,max_steps=12,failure='none'):
             d=model.decide(context,trace)
             if not isinstance(d,dict) or not isinstance(d.get('action'),str) or not isinstance(d.get('arguments'),dict) or not isinstance(d.get('decision_summary'),str) or not d['decision_summary'].strip():raise ValueError('invalid_decision')
         except Exception as e:
-            observation=getattr(e,'details',{'error':type(e).__name__});trace.append({'step':step,'action':'model_error','arguments':{},'observation':observation,'decision_summary':'No valid decision.'});final.update(reason='model_error',gaps=['model_error']);break
+            observation=getattr(e,'details',{'error':type(e).__name__});trace.append({'step':step,'action':'model_error','arguments':{},'observation':observation,'decision_summary':'No valid decision.'});final.update(reason='model_error',answer='模型响应失败，尚未形成可验证回答。',gaps=['model_error']);break
         observation=tools.call(d['action'],d['arguments'])
         trace.append({'step':step,'action':d['action'],'arguments':d['arguments'],'observation':observation,'decision_summary':d['decision_summary'][:500],'model_response':getattr(model,'last_meta',{})})
         if observation.get('finished'):final={k:v for k,v in observation.items() if k!='finished'};break

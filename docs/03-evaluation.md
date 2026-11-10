@@ -1,6 +1,6 @@
 # 评估
 
-实际执行：10 个 unittest 测试方法通过（含多场景子测试），9/9 离线验收通过。证据：[测试日志](../examples/test-results.txt)、[汇总及逐项输入/输出/断言链接](../examples/mock-validation/REPORT.md)。真实模型尚未执行。
+实际执行：10 个 unittest 测试方法通过（含多场景子测试），9/9 离线验收通过。证据：[测试日志](../examples/test-results.txt)、[汇总及逐项输入/输出/断言链接](../examples/mock-validation/REPORT.md)。真实模型首轮已执行两个用例，见下方记录。
 
 | 验收点 | 实际结果与 Trace |
 |---|---|
@@ -15,4 +15,10 @@
 
 上述路径为实际执行 Mock 的记录，不是模型能力证据。真实验收执行 README 命令，重点比较 clear 与 conflict，以及 followup 的补查动作。明确引用应与相应用例 documents.json 逐字一致。
 
-限制：别名覆盖有限，未识别的改写可能澄清；跨主题复杂问题未支持；全文差异判冲突过于保守。没有生产权限管理/大库分页/网络搜索。API 权限、网络和模型 JSON 输出尚待真实运行验证。
+限制：别名覆盖有限，未识别的改写可能澄清；跨主题复杂问题未支持；全文差异判冲突过于保守。没有生产权限管理/大库分页/网络搜索。API 权限、网络和模型 JSON 输出首轮已连通 API，其余真实用例待补测。
+
+## 2026-11-10 首轮真实验收
+
+[真实报告](../examples/live-20261110-144836/REPORT.md)。clear 通过。conflict 读取 D01 后试图提前回答，证据检查拒绝该动作，下一次模型响应无效，流程中止。其余用例未执行。
+
+本次修复向模型返回未读文档 ID，并在模型响应无法解析时仅重试一次。离线检查通过。保留首轮 clear 证据，补测 conflict、outside、paraphrase、followup 和 tool_failure。
