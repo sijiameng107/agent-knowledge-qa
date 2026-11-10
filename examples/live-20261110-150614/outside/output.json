@@ -1,0 +1,36 @@
+{
+  "status": "incomplete",
+  "reason": "model_error",
+  "answer": "模型响应失败，尚未形成可验证回答。",
+  "citations": [],
+  "gaps": [
+    "model_error"
+  ],
+  "timestamp": "2026-11-10T07:06:37.326137+00:00",
+  "model_mode": "live",
+  "model": "glm-4-flash-250414",
+  "tool_mode": "local_synthetic",
+  "max_steps": 12,
+  "steps_used": 1,
+  "state": {
+    "topic": null,
+    "searches": [],
+    "candidates": {},
+    "read": {},
+    "tool_errors": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "action": "model_error",
+      "arguments": {},
+      "observation": {
+        "error": "invalid_model_response",
+        "message": "Expected a complete JSON decision object; no tool was executed.",
+        "finish_reason": "stop"
+      },
+      "decision_summary": "No valid decision.",
+      "next_action": "stop:incomplete"
+    }
+  ]
+}

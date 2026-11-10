@@ -1,0 +1,26 @@
+{
+  "mode": "live",
+  "expected": 5,
+  "executed": 2,
+  "passed": 1,
+  "cases": [
+    {
+      "case": "conflict",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "both_sides": true
+      }
+    },
+    {
+      "case": "outside",
+      "passed": false,
+      "checks": {
+        "status": false,
+        "quotes_exact": true,
+        "no_fabricated_citations": true
+      }
+    }
+  ]
+}
