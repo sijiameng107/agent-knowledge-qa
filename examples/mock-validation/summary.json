@@ -1,0 +1,91 @@
+{
+  "mode": "mock",
+  "expected": 9,
+  "executed": 9,
+  "passed": 9,
+  "cases": [
+    {
+      "case": "clear",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "supported": true
+      }
+    },
+    {
+      "case": "conflict",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "both_sides": true
+      }
+    },
+    {
+      "case": "outside",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "no_fabricated_citations": true
+      }
+    },
+    {
+      "case": "paraphrase",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "supported": true
+      }
+    },
+    {
+      "case": "followup",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "supported": true,
+        "history_not_fact": true
+      }
+    },
+    {
+      "case": "tool_failure",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "no_fabricated_citations": true
+      }
+    },
+    {
+      "case": "read_failure",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "no_fabricated_citations": true
+      }
+    },
+    {
+      "case": "transient_failure",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "supported": true
+      }
+    },
+    {
+      "case": "replaced_document",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "supported": true,
+        "new_fact": true
+      }
+    }
+  ]
+}

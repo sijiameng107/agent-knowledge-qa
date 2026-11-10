@@ -1,0 +1,15 @@
+test_acceptance_cases (test_agent.Tests.test_acceptance_cases) ... ok
+test_conflict_cannot_choose_newest (test_agent.Tests.test_conflict_cannot_choose_newest) ... ok
+test_history_only_resolves_topic (test_agent.Tests.test_history_only_resolves_topic) ... ok
+test_limit (test_agent.Tests.test_limit) ... ok
+test_missing_question (test_agent.Tests.test_missing_question) ... ok
+test_quote_replacement (test_agent.Tests.test_quote_replacement) ... ok
+test_read_requires_search (test_agent.Tests.test_read_requires_search) ... ok
+test_transient_is_in_trace (test_agent.Tests.test_transient_is_in_trace) ... ok
+test_unread_citation_rejected (test_agent.Tests.test_unread_citation_rejected) ... ok
+test_unrelated_query_not_authority (test_agent.Tests.test_unrelated_query_not_authority) ... ok
+
+----------------------------------------------------------------------
+Ran 10 tests in 0.001s
+
+OK

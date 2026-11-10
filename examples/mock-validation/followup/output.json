@@ -1,0 +1,138 @@
+{
+  "status": "answered",
+  "answer": "依据已读取资料：D01（2026-01-01）：报销期限为30天。",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "version_date": "2026-01-01",
+      "quote": "报销期限为30天。"
+    }
+  ],
+  "gaps": [],
+  "timestamp": "2026-11-09T13:49:04.865397+00:00",
+  "model_mode": "mock",
+  "model": "scripted-test-double",
+  "tool_mode": "local_synthetic",
+  "max_steps": 12,
+  "steps_used": 4,
+  "state": {
+    "topic": "reimbursement",
+    "searches": [
+      {
+        "query": "那具体多久？",
+        "results": []
+      },
+      {
+        "query": "报销",
+        "results": [
+          {
+            "id": "D01",
+            "version_date": "2026-01-01",
+            "title": "报销制度A",
+            "topic": "reimbursement"
+          }
+        ]
+      }
+    ],
+    "candidates": {
+      "D01": {
+        "id": "D01",
+        "version_date": "2026-01-01",
+        "title": "报销制度A",
+        "topic": "reimbursement"
+      }
+    },
+    "read": {
+      "D01": {
+        "id": "D01",
+        "version_date": "2026-01-01",
+        "title": "报销制度A",
+        "topic": "reimbursement",
+        "text": "报销期限为30天。"
+      }
+    },
+    "tool_errors": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "action": "search_documents",
+      "arguments": {
+        "query": "那具体多久？"
+      },
+      "observation": {
+        "results": [],
+        "truncated": false,
+        "query_topic": null
+      },
+      "decision_summary": "Offline scripted policy; not real model evidence.",
+      "model_response": {},
+      "next_action": "search_documents"
+    },
+    {
+      "step": 2,
+      "action": "search_documents",
+      "arguments": {
+        "query": "报销"
+      },
+      "observation": {
+        "results": [
+          {
+            "id": "D01",
+            "version_date": "2026-01-01",
+            "title": "报销制度A",
+            "topic": "reimbursement"
+          }
+        ],
+        "truncated": false,
+        "query_topic": "reimbursement"
+      },
+      "decision_summary": "Offline scripted policy; not real model evidence.",
+      "model_response": {},
+      "next_action": "read_excerpt"
+    },
+    {
+      "step": 3,
+      "action": "read_excerpt",
+      "arguments": {
+        "doc_id": "D01"
+      },
+      "observation": {
+        "id": "D01",
+        "version_date": "2026-01-01",
+        "title": "报销制度A",
+        "topic": "reimbursement",
+        "text": "报销期限为30天。"
+      },
+      "decision_summary": "Offline scripted policy; not real model evidence.",
+      "model_response": {},
+      "next_action": "respond"
+    },
+    {
+      "step": 4,
+      "action": "respond",
+      "arguments": {
+        "disposition": "answer",
+        "doc_ids": [
+          "D01"
+        ]
+      },
+      "observation": {
+        "finished": true,
+        "status": "answered",
+        "answer": "依据已读取资料：D01（2026-01-01）：报销期限为30天。",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "version_date": "2026-01-01",
+            "quote": "报销期限为30天。"
+          }
+        ],
+        "gaps": []
+      },
+      "decision_summary": "Offline scripted policy; not real model evidence.",
+      "model_response": {},
+      "next_action": "stop:answered"
+    }
+  ]
+}

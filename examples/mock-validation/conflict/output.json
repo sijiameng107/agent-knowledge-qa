@@ -1,0 +1,178 @@
+{
+  "status": "needs_confirmation",
+  "answer": "资料存在冲突：D01（2026-01-01）：报销期限为30天。；D02（2026-06-01）：报销期限为15天。。未提供适用范围或优先级，请确认应适用哪份制度；不能擅自选择。",
+  "citations": [
+    {
+      "doc_id": "D01",
+      "version_date": "2026-01-01",
+      "quote": "报销期限为30天。"
+    },
+    {
+      "doc_id": "D02",
+      "version_date": "2026-06-01",
+      "quote": "报销期限为15天。"
+    }
+  ],
+  "gaps": [
+    "applicable_scope",
+    "policy_priority"
+  ],
+  "timestamp": "2026-11-09T13:49:04.864458+00:00",
+  "model_mode": "mock",
+  "model": "scripted-test-double",
+  "tool_mode": "local_synthetic",
+  "max_steps": 12,
+  "steps_used": 4,
+  "state": {
+    "topic": "reimbursement",
+    "searches": [
+      {
+        "query": "报销期限多久？",
+        "results": [
+          {
+            "id": "D01",
+            "version_date": "2026-01-01",
+            "title": "报销制度A",
+            "topic": "reimbursement"
+          },
+          {
+            "id": "D02",
+            "version_date": "2026-06-01",
+            "title": "报销制度B",
+            "topic": "reimbursement"
+          }
+        ]
+      }
+    ],
+    "candidates": {
+      "D01": {
+        "id": "D01",
+        "version_date": "2026-01-01",
+        "title": "报销制度A",
+        "topic": "reimbursement"
+      },
+      "D02": {
+        "id": "D02",
+        "version_date": "2026-06-01",
+        "title": "报销制度B",
+        "topic": "reimbursement"
+      }
+    },
+    "read": {
+      "D01": {
+        "id": "D01",
+        "version_date": "2026-01-01",
+        "title": "报销制度A",
+        "topic": "reimbursement",
+        "text": "报销期限为30天。"
+      },
+      "D02": {
+        "id": "D02",
+        "version_date": "2026-06-01",
+        "title": "报销制度B",
+        "topic": "reimbursement",
+        "text": "报销期限为15天。"
+      }
+    },
+    "tool_errors": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "action": "search_documents",
+      "arguments": {
+        "query": "报销期限多久？"
+      },
+      "observation": {
+        "results": [
+          {
+            "id": "D01",
+            "version_date": "2026-01-01",
+            "title": "报销制度A",
+            "topic": "reimbursement"
+          },
+          {
+            "id": "D02",
+            "version_date": "2026-06-01",
+            "title": "报销制度B",
+            "topic": "reimbursement"
+          }
+        ],
+        "truncated": false,
+        "query_topic": "reimbursement"
+      },
+      "decision_summary": "Offline scripted policy; not real model evidence.",
+      "model_response": {},
+      "next_action": "read_excerpt"
+    },
+    {
+      "step": 2,
+      "action": "read_excerpt",
+      "arguments": {
+        "doc_id": "D01"
+      },
+      "observation": {
+        "id": "D01",
+        "version_date": "2026-01-01",
+        "title": "报销制度A",
+        "topic": "reimbursement",
+        "text": "报销期限为30天。"
+      },
+      "decision_summary": "Offline scripted policy; not real model evidence.",
+      "model_response": {},
+      "next_action": "read_excerpt"
+    },
+    {
+      "step": 3,
+      "action": "read_excerpt",
+      "arguments": {
+        "doc_id": "D02"
+      },
+      "observation": {
+        "id": "D02",
+        "version_date": "2026-06-01",
+        "title": "报销制度B",
+        "topic": "reimbursement",
+        "text": "报销期限为15天。"
+      },
+      "decision_summary": "Offline scripted policy; not real model evidence.",
+      "model_response": {},
+      "next_action": "respond"
+    },
+    {
+      "step": 4,
+      "action": "respond",
+      "arguments": {
+        "disposition": "conflict",
+        "doc_ids": [
+          "D01",
+          "D02"
+        ]
+      },
+      "observation": {
+        "finished": true,
+        "status": "needs_confirmation",
+        "answer": "资料存在冲突：D01（2026-01-01）：报销期限为30天。；D02（2026-06-01）：报销期限为15天。。未提供适用范围或优先级，请确认应适用哪份制度；不能擅自选择。",
+        "citations": [
+          {
+            "doc_id": "D01",
+            "version_date": "2026-01-01",
+            "quote": "报销期限为30天。"
+          },
+          {
+            "doc_id": "D02",
+            "version_date": "2026-06-01",
+            "quote": "报销期限为15天。"
+          }
+        ],
+        "gaps": [
+          "applicable_scope",
+          "policy_priority"
+        ]
+      },
+      "decision_summary": "Offline scripted policy; not real model evidence.",
+      "model_response": {},
+      "next_action": "stop:needs_confirmation"
+    }
+  ]
+}
