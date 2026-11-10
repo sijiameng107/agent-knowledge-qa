@@ -1,0 +1,45 @@
+{
+  "mode": "live",
+  "expected": 4,
+  "executed": 4,
+  "passed": 4,
+  "cases": [
+    {
+      "case": "outside",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "no_fabricated_citations": true
+      }
+    },
+    {
+      "case": "paraphrase",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "supported": true
+      }
+    },
+    {
+      "case": "followup",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "supported": true,
+        "history_not_fact": true
+      }
+    },
+    {
+      "case": "tool_failure",
+      "passed": true,
+      "checks": {
+        "status": true,
+        "quotes_exact": true,
+        "no_fabricated_citations": true
+      }
+    }
+  ]
+}

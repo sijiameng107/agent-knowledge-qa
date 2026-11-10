@@ -1,0 +1,79 @@
+{
+  "status": "needs_information",
+  "answer": "现有资料不足，无法可靠回答。请补充适用制度、产品资料或明确问题；工具故障时可稍后重试。",
+  "citations": [],
+  "gaps": [
+    "no_reliable_evidence"
+  ],
+  "timestamp": "2026-11-10T07:25:37.331625+00:00",
+  "model_mode": "live",
+  "model": "glm-4-flash-250414",
+  "tool_mode": "local_synthetic",
+  "max_steps": 12,
+  "steps_used": 2,
+  "state": {
+    "topic": null,
+    "searches": [
+      {
+        "query": "公司股票价格预测",
+        "results": []
+      }
+    ],
+    "candidates": {},
+    "read": {},
+    "tool_errors": []
+  },
+  "trace": [
+    {
+      "step": 1,
+      "action": "search_documents",
+      "arguments": {
+        "query": "公司股票价格预测"
+      },
+      "observation": {
+        "results": [],
+        "truncated": false,
+        "query_topic": null
+      },
+      "decision_summary": "先检索用户主题",
+      "model_response": {
+        "response_id": "20261110152534c42337ef803745cc",
+        "usage": {
+          "completion_tokens": 29,
+          "prompt_tokens": 524,
+          "total_tokens": 553
+        },
+        "finish_reason": "stop"
+      },
+      "next_action": "respond"
+    },
+    {
+      "step": 2,
+      "action": "respond",
+      "arguments": {
+        "disposition": "insufficient",
+        "doc_ids": []
+      },
+      "observation": {
+        "finished": true,
+        "status": "needs_information",
+        "answer": "现有资料不足，无法可靠回答。请补充适用制度、产品资料或明确问题；工具故障时可稍后重试。",
+        "citations": [],
+        "gaps": [
+          "no_reliable_evidence"
+        ]
+      },
+      "decision_summary": "检索后没有相关证据",
+      "model_response": {
+        "response_id": "202611101525365cf366b6e76043a0",
+        "usage": {
+          "completion_tokens": 36,
+          "prompt_tokens": 592,
+          "total_tokens": 628
+        },
+        "finish_reason": "stop"
+      },
+      "next_action": "stop:needs_information"
+    }
+  ]
+}

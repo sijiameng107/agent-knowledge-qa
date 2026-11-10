@@ -1,0 +1,32 @@
+{
+  "aliases": {
+    "reimbursement": [
+      "报销",
+      "费用申请",
+      "垫付",
+      "reimbursement",
+      "expense claim"
+    ],
+    "subtitle": [
+      "字幕",
+      "subtitle",
+      "caption"
+    ]
+  },
+  "documents": [
+    {
+      "id": "D01",
+      "version_date": "2026-01-01",
+      "title": "报销制度A",
+      "topic": "reimbursement",
+      "text": "报销期限为30天。"
+    },
+    {
+      "id": "P01",
+      "version_date": "2026-05-01",
+      "title": "产品功能说明",
+      "topic": "subtitle",
+      "text": "该产品支持字幕功能。"
+    }
+  ]
+}

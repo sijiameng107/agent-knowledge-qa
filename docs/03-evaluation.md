@@ -28,3 +28,7 @@
 [原始报告](../examples/live-20261110-150614/REPORT.md)。本轮 conflict 通过。模型在证据校验拦截提前回答后，补读 D02，最终引用 D01 的 30 天和 D02 的 15 天并请求确认。outside 的模型响应无法解析，判为失败。paraphrase、followup、tool_failure 未执行。clear 通过证据来自首轮。
 
 第三轮补测前修改：给模型增加资料外问题的检索和拒答动作示例，记录响应解析失败的具体阶段。单个响应格式错误会保留失败记录并继续跑下一条。离线用例和模拟格式错误后的继续执行检查均已通过，真实补测待执行。
+
+## 2026-11-10 第三轮真实验收
+
+[原始报告](../examples/live-20261110-152533/REPORT.md)。outside、paraphrase、followup、tool_failure 四项全部通过。结合首轮 clear 和第二轮 conflict，六项必验均有通过证据。冲突 Trace 保留了模型收到未读文档提示后补读 D02 并列出冲突的过程。

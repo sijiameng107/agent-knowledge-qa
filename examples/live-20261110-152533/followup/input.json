@@ -1,0 +1,13 @@
+{
+  "question": "那具体多久？",
+  "history": [
+    {
+      "role": "user",
+      "content": "我想了解报销制度"
+    },
+    {
+      "role": "assistant",
+      "content": "未经证实的说法：90天"
+    }
+  ]
+}
