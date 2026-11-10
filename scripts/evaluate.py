@@ -23,7 +23,11 @@ def evaluate(mode,output,selected=None):
         folder=out/name;folder.mkdir(exist_ok=True)
         for filename,value in [('input.json',r),('documents.json',f),('output.json',result),('assertions.json',checks)]: (folder/filename).write_text(json.dumps(value,ensure_ascii=False,indent=2)+'\n')
         records.append({'case':name,'passed':all(checks.values()),'checks':checks});print(name,'PASS' if all(checks.values()) else 'FAIL',flush=True)
-        if result.get('reason')=='model_error':print(json.dumps(result['trace'][-1]['observation'],ensure_ascii=False));break
+        if result.get('reason') == 'model_error':
+            observation = result['trace'][-1]['observation']
+            print(json.dumps(observation, ensure_ascii=False), flush=True)
+            if observation.get('error') in {'http_error', 'network_error', 'configuration_error'}:
+                break
     summary={'mode':mode,'expected':len(suite),'executed':len(records),'passed':sum(r['passed'] for r in records),'cases':records}
     (out/'summary.json').write_text(json.dumps(summary,ensure_ascii=False,indent=2)+'\n')
     (out/'REPORT.md').write_text('# '+mode+' 验收\n\n'+f"通过 {summary['passed']}/{summary['expected']}。\n\n"+'\n'.join(f"- {r['case']}: {r['passed']} — [输入]({r['case']}/input.json)、[资料]({r['case']}/documents.json)、[输出与Trace]({r['case']}/output.json)、[断言]({r['case']}/assertions.json)" for r in records)+'\n\nMock不能证明真实模型决策效果。\n')
